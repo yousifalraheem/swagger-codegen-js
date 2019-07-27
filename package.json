@@ -1,0 +1,54 @@
+{
+  "name": "swagger-codegen-js",
+  "version": "0.1.0",
+  "description": "Swagger Javascript/Typescript codegen written in JS",
+  "main": "bin/index.js",
+  "scripts": {
+    "clean-bin": "rimraf bin/*",
+    "clean-output": "rimraf output/*",
+    "build": "npm run clean-bin && tsc",
+    "generate": "npm run clean-output && node bin/index.js",
+    "all": "npm run build && npm run generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yousifalraheem/swagger-codegen-js.git"
+  },
+  "keywords": [
+    "swagger",
+    "codegen",
+    "api",
+    "typescript",
+    "handlebars"
+  ],
+  "author": {
+    "name": "Yousif Al-Raheem",
+    "website": "https://yousifalraheem.github.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yousifalraheem/swagger-codegen-js/issues"
+  },
+  "homepage": "https://github.com/yousifalraheem/swagger-codegen-js#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/lodash": "^4.14.136",
+    "@types/node": "^12.6.8",
+    "handlebars": "^4.1.2",
+    "lodash": "^4.17.15",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
+  },
+  "peerDependencies": {
+    "lodash": "4.x",
+    "rimraf": "2.x",
+    "handlebars": "4.x"
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
+  }
+}

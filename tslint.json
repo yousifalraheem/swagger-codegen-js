@@ -1,0 +1,49 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:latest",
+        "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+        "semicolon": true,
+        "ordered-imports": false,
+        "max-line-length": false,
+        "unified-signatures": false,
+        "no-console": false,
+        "object-literal-sort-keys": false,
+        "no-angle-bracket-type-assertion": false,
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-module",
+            "check-separator",
+            "check-rest-spread",
+            "check-type",
+            "check-type-operator",
+            "check-preblock",
+            "check-postbrace"
+        ],
+        "space-within-parens": true,
+        "variable-name": {
+            "options": [
+                "allow-leading-underscore",
+                "allow-pascal-case",
+                "allow-snake-case",
+                "allow-trailing-underscore",
+                "ban-keywords"
+            ]
+        },
+        "member-ordering": false,
+        "no-namespace": false,
+        "max-classes-per-file": false
+    },
+    "rulesDirectory": [],
+    "linterOptions": {
+        "exclude": [
+            "node_modules"
+        ]
+    }
+}
