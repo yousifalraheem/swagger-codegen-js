@@ -3,13 +3,20 @@
   "version": "0.1.0",
   "description": "Swagger Javascript/Typescript codegen written in JS",
   "main": "bin/index.js",
+  "types": "src/@types",
   "scripts": {
     "clean-bin": "rimraf bin/*",
     "clean-output": "rimraf output/*",
     "build": "npm run clean-bin && tsc",
     "generate": "npm run clean-output && node bin/index.js",
     "all": "npm run build && npm run generate",
-    "test": "nyc mocha"
+    "test": "nyc mocha",
+    "test-ci": "mocha"
+  },
+  "directories": {
+    "lib": "./lib",
+    "src": "./src",
+    "test": "./test"
   },
   "repository": {
     "type": "git",
@@ -48,6 +55,7 @@
     "source-map-support": "^0.5.12",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.5.3"

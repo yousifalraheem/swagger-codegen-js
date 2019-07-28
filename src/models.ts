@@ -22,7 +22,7 @@ export class CodegenTemplate implements ITemplate {
     public rawData: string;
     public path: CodegenPath;
 
-    constructor(obj?: CodegenTemplate) {
+    constructor(obj?: ITemplate) {
         return obj ? this.set("rawData", obj.rawData).set("path", obj.path) : this.init();
     }
 

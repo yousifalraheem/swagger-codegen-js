@@ -41,7 +41,12 @@
         "max-classes-per-file": false,
         "no-implicit-dependencies": false,
         "interface-over-type-literal": false,
-        "interface-name": false
+        "interface-name": false,
+        "no-reference": false,
+        "no-unused-expression": false,
+        "no-var-requires": false,
+        "no-object-literal-type-assertion": false,
+        "array-type": false
     },
     "rulesDirectory": [],
     "linterOptions": {
