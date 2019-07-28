@@ -38,7 +38,10 @@
         },
         "member-ordering": false,
         "no-namespace": false,
-        "max-classes-per-file": false
+        "max-classes-per-file": false,
+        "no-implicit-dependencies": false,
+        "interface-over-type-literal": false,
+        "interface-name": false
     },
     "rulesDirectory": [],
     "linterOptions": {

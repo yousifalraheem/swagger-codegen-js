@@ -1,6 +1,6 @@
 declare type CodegenPath = {
     uri: string;
-    type: SourceTypes;
+    type: any;
 }
 
 declare type ConstructorOptions = {
@@ -15,5 +15,5 @@ declare type ConstructorOptions = {
     /**
      * The output path of the generated files
      */
-    outputPath: string | IOutputPaths;
+    output: string | IOutputPaths;
 };

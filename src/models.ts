@@ -1,3 +1,4 @@
+import { Enums } from "./enums";
 
 export class CodegenData implements IData {
     public rawData: SwaggerSchema.Spec;
@@ -13,7 +14,7 @@ export class CodegenData implements IData {
     }
 
     private init(): CodegenData {
-        return this.set("rawData", null).set("path", { uri: "", type: SourceTypes.UNKNOWN });
+        return this.set("rawData", null).set("path", { uri: "", type: Enums.SourceTypes.UNKNOWN });
     }
 }
 
@@ -31,7 +32,7 @@ export class CodegenTemplate implements ITemplate {
     }
 
     private init(): CodegenTemplate {
-        return this.set("rawData", null).set("path", { uri: "", type: SourceTypes.UNKNOWN });
+        return this.set("rawData", null).set("path", { uri: "", type: Enums.SourceTypes.UNKNOWN });
     }
 }
 
@@ -51,7 +52,7 @@ export class OutputPaths implements IOutputPaths {
     }
 
     public set(key: keyof OutputPaths, value: string): OutputPaths {
-        this.set(key, value);
+        if (key) { this[key] = <any>value; }
         return this;
     }
 
