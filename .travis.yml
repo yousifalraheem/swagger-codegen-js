@@ -1,11 +1,15 @@
-language: nodejs
+language:
+  nodejs
 node_js:
   - "stable"
 cache:
   directories:
     - node_modules
 script:
+  - npm install
   - npm test
   - npm run build
+after_success:
+  npm run coverage
 on:
   branch: master
