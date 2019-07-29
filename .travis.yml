@@ -2,10 +2,8 @@ language:
   nodejs
 node_js:
   - "8"
-cache:
-  directories:
-    - node_modules
 script:
+  - node --version
   - npm install
   - npm test
   - npm run build
