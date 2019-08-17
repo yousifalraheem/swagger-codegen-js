@@ -46,7 +46,8 @@
         "no-unused-expression": false,
         "no-var-requires": false,
         "no-object-literal-type-assertion": false,
-        "array-type": false
+        "array-type": false,
+        "no-submodule-imports": false
     },
     "rulesDirectory": [],
     "linterOptions": {

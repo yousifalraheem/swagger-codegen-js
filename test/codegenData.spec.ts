@@ -39,7 +39,7 @@ describe("Model: Codegen Data", () => {
 
     it("Should set value with *set* method", () => {
         const testData = {
-            rawData: {},
+            rawData: { },
             path: {
                 uri: "../example/data/data.json",
                 type: Enums.SourceTypes.LOCAL

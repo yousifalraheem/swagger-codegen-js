@@ -1,0 +1,166 @@
+import { HttpClient, HttpXhrBackend, HttpHeaders, HttpParams } from "@angular/common/http";
+import { StorageManager } from "@utils/storageMangement";
+import { Observable } from "rxjs";
+
+export interface HttpOptions {
+    headers?: HttpHeaders | {
+        [header: string]: string | string[];
+    };
+    observe?: "body" | "events" | "response";
+    params?: HttpParams | {
+        [param: string]: string | string[];
+    };
+    reportProgress?: boolean;
+    responseType?: "json" | "arraybuffer" | "blob" | "text";
+    withCredentials?: boolean;
+}
+
+interface KeyValuePair {
+    [key: string]: any;
+}
+
+export const defaultBasePath = "{{apiUrl}}".replace(/\/$/, "");
+
+export interface Authentication {
+    /** Apply authentication settings to header and query params. */
+    applyToRequest(requestOptions: any): void;
+}
+
+export class HttpBasicAuth implements Authentication {
+    public username: string;
+    public password: string;
+    applyToRequest(requestOptions: any): void {
+        requestOptions.auth = { username: this.username, password: this.password }
+    }
+}
+
+export class ApiKeyAuth implements Authentication {
+    public apiKey: string;
+
+    constructor(private location: string, private paramName: string) { }
+
+    applyToRequest(requestOptions: any): void {
+        if (this.location === "query") {
+            (<any>requestOptions.params)[this.paramName] = this.apiKey;
+        } else if (this.location === "header" && requestOptions && requestOptions.headers) {
+            requestOptions.headers[this.paramName] = this.apiKey;
+        }
+    }
+}
+
+export class OAuth implements Authentication {
+    public accessToken: string;
+
+    applyToRequest(requestOptions: any): void {
+        if (requestOptions && requestOptions.headers) {
+            requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
+        }
+    }
+}
+
+export class VoidAuth implements Authentication {
+    public username: string;
+    public password: string;
+    applyToRequest(requestOptions: any): void { /** Do nothing */ }
+}
+
+export class APIHandler {
+    protected basePath = defaultBasePath;
+    protected defaultHeaders: HttpHeaders = new HttpHeaders();
+    protected storage = new StorageManager();
+    protected authentications = [ <Authentication>new VoidAuth() ];
+
+    constructor(
+        basePath?: string,
+        defaultHeaders?: any,
+        protected httpClient: HttpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }))
+    ) {
+        this.basePath = basePath;
+        this.defaultHeaders = defaultHeaders;
+    }
+
+    /**
+     * Initializes the authentication with the stored TOKEN key if authentication is required
+     * @param isAuth Is authentication enabled for this API call
+     */
+    protected initAuth(isAuth: boolean): void {
+        if (isAuth && this.authentications.length > 1) {
+            this.authentications[1]["apiKey"] = this.storage.getItem("TOKEN");
+        }
+    }
+
+    /**
+     * Verifies the required params and throws an error if any of the params were `null` or `undefined`
+     * @param requiredParams The required params in key-value pair object
+     * @param methodName The method name used for generating the error message
+     */
+    protected verifyParams(requiredParams: KeyValuePair, methodName: string): void {
+        if (requiredParams) {
+            for (let key in requiredParams) {
+                if (requiredParams[key] === null || requiredParams[key] === undefined) {
+                    throw new Error(`Required parameter ${key} was null or undefined when calling ${methodName}.`);
+                }
+            }
+        }
+    }
+
+    /**
+     * Initializes the API url with the URL params
+     * @param path The API path
+     * @param urlParams The url params to be inserted in the API path
+     * @returns The initialized API URL
+     */
+    protected initAPIURL(path: string, urlParams: KeyValuePair): string {
+        if (urlParams) {
+            for (let key in urlParams) {
+                path = path.replace(key, urlParams[key]);
+            }
+        }
+        return this.basePath + path;
+    }
+
+    /**
+     * Initializes the API call options with query params and header params
+     * @param options The HTTP options object to be initialized
+     * @param queryParams The query params to be inserted
+     * @param headerParams The header params to be inserted
+     * @returns the initialized options object
+     */
+    protected initOptions(options: HttpOptions, queryParams: KeyValuePair, headerParams: KeyValuePair): HttpOptions {
+        options.headers = options.headers ? options.headers : <HttpHeaders>{ ...this.defaultHeaders };
+        options.params = options.params ? options.params : new HttpParams();
+        options.responseType = options.responseType ? options.responseType : "json";
+        if (queryParams) {
+            for (let key in queryParams) {
+                if (queryParams[key] !== undefined) {
+                    (<HttpParams>options.params).set(key, queryParams[key]);
+                }
+            }
+        }
+        if (headerParams) {
+            for (let key in headerParams) {
+                if (headerParams[key] !== undefined) {
+                    (<HttpHeaders>options.headers).set(key, headerParams[key]);
+                }
+            }
+        }
+        return options;
+    }
+
+    /**
+     * Make an API call
+     * @param method The HTTP method (`get`, `delete`, `post`, `put`)
+     * @param url The URL of the API to call
+     * @param options The http options to be sent
+     * @param body The body of the request, if any
+     */
+    protected makeCall<T>(method: string, url: string, options: HttpOptions, body?: any): Observable<any> {
+        switch (method) {
+            case "get": return this.httpClient.get<T>(url, <any>options);
+            case "delete": return this.httpClient.delete<T>(url, <any>options);
+            case "post": return this.httpClient.post<T>(url, body, <any>options);
+            case "put": return this.httpClient.put<T>(url, body, <any>options);
+            default: throw new Error(`Invalid HTTP method ${method}`);
+        }
+    }
+}

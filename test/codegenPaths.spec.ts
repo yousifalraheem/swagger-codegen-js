@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { OutputPaths } from "../src/models";
+import { OutputPaths } from "../src/models/SwaggerCodegen";
 import { describe } from "mocha";
 
 const swaggerSchema = require("../example/data/swagger.json");

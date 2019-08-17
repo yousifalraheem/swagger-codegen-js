@@ -1,0 +1,49 @@
+import { Observable } from "rxjs";
+import * as APIModels from "@api/models";
+import * as APIHelpers from "@api/helpers";
+
+
+{{#apiInfo}}
+{{#apis}}
+{{#operations}}
+export class {{classname}} extends APIHelpers.APIHandler {
+    constructor() {
+        super();{{#authMethods}}
+        this.authentications.push({{#isBasic}}new APIHelpers.HttpBasicAuth(){{/isBasic}}{{#isApiKey}}new APIHelpers.ApiKeyAuth({{#isKeyInHeader}}'header', {{/isKeyInHeader}}{{^isKeyInHeader}}'query', {{/isKeyInHeader}}'{{keyParamName}}'){{/isApiKey}}{{#isOAuth}}new APIHelpers.OAuth(){{/isOAuth}});{{/authMethods}}
+    }
+{{#authMethods}}
+{{#isBasic}}
+    set username(username: string) {
+        this.authentications.{{name}}.username = username;
+    }
+
+    set password(password: string) {
+        this.authentications.{{name}}.password = password;
+    }
+{{/isBasic}}
+{{#isOAuth}}
+    set accessToken(token: string) {
+        this.authentications.{{name}}.accessToken = token;
+    }
+{{/isOAuth}}
+{{/authMethods}}
+
+{{#operation}}
+    /**{{#summary}}
+     * {{summary}}{{/summary}}{{#notes}}
+     * {{notes}}{{/notes}}{{#allParams}}
+     * @param {{paramName}} {{description}}{{/allParams}}
+     */
+    public {{nickname}}<T>({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{^isPrimitiveType}}APIModels.{{/isPrimitiveType}}{{{dataType}}}{{#hasMore}}, {{/hasMore}}, {{/allParams}}options: APIHelpers.HttpOptions = {}): Observable<T> { {{#hasParams}}
+        this.verifyParams({ {{#allParams}}{{#required}} {{baseName}}: {{paramName}}{{/required}}{{/allParams}} }, "{{nickname}}");{{/hasParams}}
+        this.initAuth({{#hasAuthMethods}}true{{/hasAuthMethods}}{{^hasAuthMethods}}false{{/hasAuthMethods}});
+        const apiURL: string = this.initAPIURL("{{path}}", {{#pathParams}}{ {{baseName}}: {{paramName}}{{#hasMore}}, {{/hasMore}} } {{/pathParams}}{{^pathParams}}null{{/pathParams}});
+        options = this.initOptions(options, { {{#queryParams}}{{baseName}}: {{paramName}}{{#hasMore}}, {{/hasMore}}{{/queryParams}} }, { {{#headerParams}} {{baseName}}: {{paramName}}{{#hasMore}}, {{/hasMore}}{{/headerParams}} });
+        let body: any = {{#formParams}}{{paramName}}{{/formParams}}{{^formParams}}{{#bodyParam}}{{paramName}}{{/bodyParam}}{{/formParams}}{{^formParams}}{{^bodyParam}}null{{/bodyParam}}{{/formParams}};
+        return this.makeCall<T>("{{httpMethod}}".toLowerCase(), apiURL, options, body);
+    }
+{{/operation}}
+}
+{{/operations}}
+{{/apis}}
+{{/apiInfo}}
