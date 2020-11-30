@@ -1,0 +1,4 @@
+declare type IApi{{name}} =
+    {{#each enum}}
+    "{{this}}"{{#if @last}};{{else}} |{{/if}}
+    {{/each}}

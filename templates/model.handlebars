@@ -1,0 +1,5 @@
+declare interface IApi{{name}} {
+    {{#each properties}}
+    {{propertyName}}{{#if required}}?{{/if}}: {{{type}}};
+    {{/each}}
+}

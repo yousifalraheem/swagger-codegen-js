@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dfb7213d-68d8-4010-bf12-4315e1a8098c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.coveralls.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mocharc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nvmrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/constants.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/enums.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/enums.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/models.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/models.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/swagger-codegen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/swagger-codegen.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/data/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/data/swagger.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/example.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/templates/template.handlebars" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@types/interfaces.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@types/swagger-schema.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@types/types.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swagger-codegen.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/codegenData.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/codegenPaths.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/codegenTemplate.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/mocha.opts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/regex.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/setup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/swagger-codegen.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1l01q4gQBxtgWgPYHfzpbssEJjj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dfb7213d-68d8-4010-bf12-4315e1a8098c" name="Default Changelist" comment="" />
+      <created>1606719386530</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606719386530</updated>
+      <workItem from="1606719388434" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

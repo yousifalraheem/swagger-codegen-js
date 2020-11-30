@@ -1,9 +1,0 @@
-/** This is a test in `Handlebars` */
-
-{{#if hasInterface}}
-interface {{name}} {
-    {{#each vars}}
-    {{name}}{{#if required}}?{{/if}}: {{type}};
-    {{/each}}
-}
-{{/if}}

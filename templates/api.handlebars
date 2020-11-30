@@ -1,0 +1,14 @@
+import { setHeaders, makeApiCall, ApiHeaders } from "./base";
+
+export class {{name}}Api {
+    static setHeaders(headers: ApiHeaders) {
+        setHeaders.call({{name}}Api, {{name}}Api, headers)
+        return setHeaders<{{name}}Api>(headers) && {{name}}Api;
+    };
+
+    {{#each endpoints}}
+    static {{this.methodName}}({{#if this.queryParams}}params: { {{#each this.queryParams}}{{this.name}}: {{this.type}}{{#if @last}}{{else}},{{/if}}{{/each}} }{{/if}}) {
+        return makeApiCall("{{{this.path}}}", "{{this.method}}"{{#if this.queryParams}}, params{{/if}});
+    }
+    {{/each}}
+}

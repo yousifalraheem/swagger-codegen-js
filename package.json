@@ -1,90 +1,15 @@
 {
-  "name": "swagger-codegen-js",
-  "version": "0.1.0",
-  "description": "Swagger Javascript/Typescript codegen written in JS",
-  "main": "bin/index.js",
-  "types": "src/@types",
-  "scripts": {
-    "clean-bin": "rimraf bin/*",
-    "clean-output": "rimraf output/*",
-    "build": "npm run clean-bin && tsc",
-    "generate": "npm run clean-output && node bin/index.js",
-    "all": "npm run build && npm run generate",
-    "test": "nyc mocha",
-    "test-ci": "mocha",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
-  },
-  "directories": {
-    "lib": "./lib",
-    "src": "./src",
-    "test": "./test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yousifalraheem/swagger-codegen-js.git"
-  },
-  "keywords": [
-    "swagger",
-    "codegen",
-    "api",
-    "typescript",
-    "handlebars"
-  ],
-  "author": {
-    "name": "Yousif Al-Raheem",
-    "website": "https://yousifalraheem.github.io"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yousifalraheem/swagger-codegen-js/issues"
-  },
-  "homepage": "https://github.com/yousifalraheem/swagger-codegen-js#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^0.1.3",
-    "@types/chai": "^4.1.7",
-    "@types/lodash": "^4.14.136",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.6.8",
-    "chai": "^4.2.0",
-    "coveralls": "^3.0.5",
-    "handlebars": "^4.5.3",
-    "lodash": "^4.17.19",
-    "mocha": "^6.2.0",
-    "nyc": "^14.1.1",
-    "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
-    "source-map-support": "^0.5.12",
-    "ts-loader": "^6.0.4",
-    "ts-node": "^8.3.0",
-    "tsconfig-paths": "^3.8.0",
-    "tslint": "^5.18.0",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.3"
-  },
-  "peerDependencies": {
-    "lodash": "4.x",
-    "rimraf": "2.x",
-    "handlebars": "4.x"
-  },
-  "engines": {
-    "node": ">= 8.0.0",
-    "npm": ">= 5.0.0"
-  },
-  "nyc": {
-    "extension": [
-      ".ts"
-    ],
-    "include": [
-      "src/**/*"
-    ],
-    "exclude": [
-      "**/*.d.ts"
-    ],
-    "reporter": [
-      "html",
-      "text"
-    ],
-    "all": true
-  }
+    "name": "swagger-codegen-js",
+    "version": "1.0.0",
+    "description": "A node swagger code generator",
+    "main": "index.js",
+    "repository": "http://github.com/yousifalraheem/swagger-codegen-js.git",
+    "author": "Yousif Al-Raheem <yousif.alraheem@seb.se>",
+    "license": "MIT",
+    "dependencies": {
+        "handlebars": "^4.7.6"
+    },
+    "peerDependencies": {
+        "handlebars": "4"
+    }
 }
